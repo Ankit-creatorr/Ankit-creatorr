@@ -1,0 +1,39 @@
+import os
+
+# Get the current working directory
+cwd = os.getcwd()
+print(f"Current Working Directory: {cwd}")
+
+# List all files and directories in the current directory
+files = os.listdir(cwd)
+print(f"Files and Directories in '{cwd}': {files}")
+
+# Create a new directory
+new_dir = os.path.join(cwd, 'new_folder')
+if not os.path.exists(new_dir):
+    os.mkdir(new_dir)
+    print(f"Created directory: {new_dir}")
+else:
+    print(f"Directory already exists: {new_dir}")
+
+# Rename the new directory
+renamed_dir = os.path.join(cwd, 'renamed_folder')
+if os.path.exists(new_dir):
+    os.rename(new_dir, renamed_dir)
+    print(f"Renamed directory to: {renamed_dir}")
+else:
+    print(f"Directory does not exist: {new_dir}")
+
+# Remove the renamed directory
+if os.path.exists(renamed_dir):
+    os.rmdir(renamed_dir)
+    print(f"Removed directory: {renamed_dir}")
+else:
+    print(f"Directory does not exist: {renamed_dir}")
+
+# Environment variables
+home_dir = os.getenv('HOME')
+print(f"Home Directory: {home_dir}")
+
+# Execute a shell command
+os.system('echo "Hello, World!"')
